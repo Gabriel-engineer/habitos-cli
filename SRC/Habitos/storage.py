@@ -1,7 +1,5 @@
 """Módulo de persistência: leitura e escrita de hábitos em arquivo JSON."""
-
 from __future__ import annotations
-
 import json
 from datetime import date
 from pathlib import Path
