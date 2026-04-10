@@ -1,0 +1,1 @@
+"""Configuração global do pytest."""
