@@ -177,8 +177,8 @@ habitos-cli/
 
 ## 👤 Autor
 
-**Seu Nome**
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
+**Seu Nome** Gabriel Vasconcelos Lima Gomes
+
 
 ---
 
