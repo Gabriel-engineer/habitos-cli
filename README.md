@@ -4,7 +4,7 @@
 ![Versão](https://img.shields.io/badge/versão-1.0.0-blue)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Licença](https://img.shields.io/badge/licença-MIT-green)
-
+🚀 **Deploy:https://replit.com/@gabriellgomes1/habitos-cli)
 > Checklist de hábitos diários pelo terminal — simples, leve e sem distrações.
 
 ---
