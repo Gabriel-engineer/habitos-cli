@@ -1,8 +1,12 @@
 """Interface de linha de comando (CLI) do Hábitos CLI."""
+
 from __future__ import annotations
+
 import argparse
 import sys
+
 from habitos import manager
+from motivacao import buscar_frase_motivacional
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -67,19 +71,13 @@ def run(args: list[str] | None = None) -> None:
             print(f"   ○ Pendentes  : {s['pending']}")
             print(f"   Total        : {s['total']}\n")
 
-    except ValueError as e:
-        # BUG CORRIGIDO: KeyError era capturado junto com ValueError, mas
-        # str(KeyError(...)) inclui aspas extras no Python (ex: "'mensagem'").
-        # Separando os except, usamos e.args[0] no KeyError para exibir
-        # a mensagem limpa sem aspas desnecessárias.
+    except (ValueError, KeyError) as e:
         print(f"Erro: {e}", file=sys.stderr)
-        sys.exit(1)
-    except KeyError as e:
-        print(f"Erro: {e.args[0]}", file=sys.stderr)
         sys.exit(1)
 
 
 def main() -> None:
+    print(buscar_frase_motivacional())
     run()
 
 

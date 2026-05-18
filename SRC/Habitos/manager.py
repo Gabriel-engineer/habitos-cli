@@ -1,6 +1,9 @@
 """Módulo de lógica de negócio: gerenciamento de hábitos diários."""
+
 from __future__ import annotations
+
 from pathlib import Path
+
 from habitos import storage
 
 
@@ -13,11 +16,14 @@ def add_habit(name: str, path: Path = storage.DEFAULT_PATH) -> str:
     name = name.strip()
     if not name:
         raise ValueError("O nome do hábito não pode ser vazio.")
+
     data = storage.load(path)
     today = storage.today_key()
     day = _get_today(data, today)
+
     if name in day["habits"]:
         return f"Hábito '{name}' já existe para hoje."
+
     day["habits"][name] = False
     storage.save(data, path)
     return f"Hábito '{name}' adicionado com sucesso!"
@@ -28,10 +34,12 @@ def list_habits(path: Path = storage.DEFAULT_PATH) -> list[dict]:
     data = storage.load(path)
     today = storage.today_key()
     day = _get_today(data, today)
-    # BUG CORRIGIDO: removido storage.save() desnecessário aqui.
-    # list_habits() é somente leitura; salvar criava uma entrada vazia
-    # para o dia mesmo sem nenhum hábito ter sido adicionado.
-    return [{"name": name, "done": done} for name, done in day["habits"].items()]
+    storage.save(data, path)
+
+    result = []
+    for name, done in day["habits"].items():
+        result.append({"name": name, "done": done})
+    return result
 
 
 def complete_habit(name: str, path: Path = storage.DEFAULT_PATH) -> str:
@@ -40,10 +48,13 @@ def complete_habit(name: str, path: Path = storage.DEFAULT_PATH) -> str:
     data = storage.load(path)
     today = storage.today_key()
     day = _get_today(data, today)
+
     if name not in day["habits"]:
         raise KeyError(f"Hábito '{name}' não encontrado para hoje.")
+
     if day["habits"][name]:
         return f"Hábito '{name}' já estava concluído."
+
     day["habits"][name] = True
     storage.save(data, path)
     return f"Hábito '{name}' marcado como concluído! ✓"
@@ -55,8 +66,10 @@ def remove_habit(name: str, path: Path = storage.DEFAULT_PATH) -> str:
     data = storage.load(path)
     today = storage.today_key()
     day = _get_today(data, today)
+
     if name not in day["habits"]:
         raise KeyError(f"Hábito '{name}' não encontrado para hoje.")
+
     del day["habits"][name]
     storage.save(data, path)
     return f"Hábito '{name}' removido."
