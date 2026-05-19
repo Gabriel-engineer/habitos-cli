@@ -177,7 +177,7 @@ habitos-cli/
 
 ## 👤 Autor
 
-**Seu Nome** Gabriel Vasconcelos Lima Gomes
+**Nome** Gabriel Vasconcelos Lima Gomes
 
 
 ---
