@@ -184,7 +184,7 @@ habitos-cli/
 
 ## 🔗 Repositório
 
-[https://github.com/seu-usuario/habitos-cli](https://github.com/seu-usuario/habitos-cli)
+(https://github.com/Gabriel-engineer/habitos-cli)
 
 ---
 
