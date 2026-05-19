@@ -1,6 +1,6 @@
 # ✅ Hábitos CLI
 
-[![CI](https://github.com/seu-usuario/habitos-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/seu-usuario/habitos-cli/actions/workflows/ci.yml)
+[![](https://github.com/seu-usuario/habitos-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/seu-usuario/habitos-cli/actions/workflows/ci.yml)
 ![Versão](https://img.shields.io/badge/versão-1.0.0-blue)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Licença](https://img.shields.io/badge/licença-MIT-green)
